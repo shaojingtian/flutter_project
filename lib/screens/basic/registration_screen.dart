@@ -1,3 +1,4 @@
+import 'package:flash_chat/screens/basic/menu_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/components/rounded_button.dart';
 import 'package:flash_chat/constants.dart';
@@ -29,14 +30,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Flexible(
-                child: Hero(
-                  tag: 'logo',
-                  child: Container(
-                    height: 200.0,
-                    child: Image.asset('images/logo.png'),
-                  ),
-                ),
+              CircleAvatar(
+                radius: 100,
+                backgroundImage: AssetImage('images/caravan.png.jpeg'),
               ),
               SizedBox(
                 height: 48.0,
@@ -76,7 +72,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     final newUser = await _auth.createUserWithEmailAndPassword(
                         email: email, password: password);
                     if (newUser != null) {
-                      Navigator.pushNamed(context, ChatScreen.id);
+                      Navigator.pushNamed(context, FrontScreen.id);
                     }
 
                     setState(() {

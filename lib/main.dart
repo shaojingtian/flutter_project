@@ -1,12 +1,26 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flash_chat/screens/carpool/carpool_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flash_chat/screens/welcome_screen.dart';
-import 'package:flash_chat/screens/login_screen.dart';
-import 'package:flash_chat/screens/registration_screen.dart';
-import 'package:flash_chat/screens/chat_screen.dart';
+import 'package:flash_chat/screens/basic/welcome_screen.dart';
+import 'package:flash_chat/screens/basic/login_screen.dart';
+import 'package:flash_chat/screens/basic/registration_screen.dart';
+import 'package:flash_chat/screens/basic/chat_screen.dart';
+import 'package:flash_chat/screens/basic/menu_screen.dart';
+import 'package:flash_chat/screens/roomfinder/roomfinder_screen.dart';
+import 'package:flash_chat/screens/carpool/carpool_screen.dart';
+import 'package:flash_chat/screens/studygroup/studygroup_screen.dart';
+import 'package:flash_chat/screens/roomfinder/postAd.dart';
+import 'package:flash_chat/screens/roomfinder/postAd_withRoom.dart';
+import 'package:flash_chat/screens/roomfinder/postAd_withoutRoom.dart';
+import 'package:flash_chat/screens/roomfinder/searchRoom.dart';
 
-void main() => runApp(FlashChat());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(Caravan());
+}
 
-class FlashChat extends StatelessWidget {
+class Caravan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,6 +30,14 @@ class FlashChat extends StatelessWidget {
         LoginScreen.id: (context) => LoginScreen(),
         RegistrationScreen.id: (context) => RegistrationScreen(),
         ChatScreen.id: (context) => ChatScreen(),
+        FrontScreen.id: (context) => FrontScreen(),
+        RoomfinderScreen.id: (context) => RoomfinderScreen(),
+        CarpoolScreen.id: (context) => CarpoolScreen(),
+        StudygroupScreen.id: (context) => StudygroupScreen(),
+        RoomfinderPostAd.id: (context) => RoomfinderPostAd(),
+        Postad_withRoom.id: (context) => Postad_withRoom(),
+        Postad_withoutRoom.id: (context) => Postad_withoutRoom(),
+        SearchRoom.id: (context) => SearchRoom(),
       },
     );
   }
