@@ -5,6 +5,7 @@ import 'package:flash_chat/components/rounded_button.dart';
 import 'package:flash_chat/screens/roomfinder/postAd.dart';
 import 'package:flash_chat/screens/roomfinder/searchRoom.dart';
 import 'package:flash_chat/screens/basic/chat_screen.dart';
+import 'package:flash_chat/components/NavigationBar.dart';
 
 class RoomfinderScreen extends StatefulWidget {
   static const String id = 'roomfinder_screen';
@@ -17,19 +18,7 @@ class _RoomfinderScreenState extends State<RoomfinderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.message_rounded),
-        onPressed: () {
-          Navigator.pushNamed(context, ChatScreen.id);
-        },
-        backgroundColor: Colors.blue,
-      ),
-      appBar: AppBar(
-          centerTitle: true,
-          title: Icon(
-            Icons.house_outlined,
-            size: 30,
-          )),
+      appBar: AppBar(centerTitle: true, title: Text('Room/Roommate')),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
@@ -46,9 +35,7 @@ class _RoomfinderScreenState extends State<RoomfinderScreen> {
             SquaredButton(
               title: 'Search for a roommate',
               colour: Colors.white,
-              onPressed: () {
-                Navigator.pushNamed(context, LoginScreen.id);
-              },
+              onPressed: () {},
             ),
             SizedBox(
               height: 80.0,
@@ -63,6 +50,7 @@ class _RoomfinderScreenState extends State<RoomfinderScreen> {
           ],
         ),
       ),
+      bottomNavigationBar: NavigationBar(),
     );
   }
 }

@@ -5,6 +5,7 @@ import '../basic/registration_screen.dart';
 import 'package:flash_chat/components/rounded_button.dart';
 import 'package:flash_chat/screens/roomfinder/postAd_withRoom.dart';
 import 'package:flash_chat/screens/basic/chat_screen.dart';
+import 'package:flash_chat/components/NavigationBar.dart';
 
 class RoomfinderPostAd extends StatefulWidget {
   static const String id = 'roomfinderPostAd_screen';
@@ -17,13 +18,6 @@ class _RoomfinderPostAdState extends State<RoomfinderPostAd> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.message_rounded),
-        onPressed: () {
-          Navigator.pushNamed(context, ChatScreen.id);
-        },
-        backgroundColor: Colors.blue,
-      ),
       appBar: AppBar(centerTitle: true, title: Text('Post Ad ')),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
@@ -48,6 +42,7 @@ class _RoomfinderPostAdState extends State<RoomfinderPostAd> {
           ],
         ),
       ),
+      bottomNavigationBar: NavigationBar(),
     );
   }
 }

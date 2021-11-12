@@ -13,6 +13,8 @@ import 'package:flash_chat/screens/roomfinder/postAd.dart';
 import 'package:flash_chat/screens/roomfinder/postAd_withRoom.dart';
 import 'package:flash_chat/screens/roomfinder/postAd_withoutRoom.dart';
 import 'package:flash_chat/screens/roomfinder/searchRoom.dart';
+import 'package:flash_chat/screens/studygroup/studyGroupMenu.dart';
+import 'package:flash_chat/screens/carpool/carpool_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,6 +26,7 @@ class Caravan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: WelcomeScreen.id,
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
@@ -38,6 +41,8 @@ class Caravan extends StatelessWidget {
         Postad_withRoom.id: (context) => Postad_withRoom(),
         Postad_withoutRoom.id: (context) => Postad_withoutRoom(),
         SearchRoom.id: (context) => SearchRoom(),
+        StudyGroupMenu.id: (context) => StudyGroupMenu(),
+        CarpoolScreen.id: (context) => CarpoolScreen(),
       },
     );
   }

@@ -244,58 +244,53 @@ class _Postad_withoutRoomState extends State<Postad_withoutRoom> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.message_rounded),
-        onPressed: () {
-          Navigator.pushNamed(context, ChatScreen.id);
-        },
-        backgroundColor: Colors.blue,
-      ),
       appBar: AppBar(centerTitle: true, title: Text('Fill out about me')),
       // backgroundColor: Colors.white,
       body: ModalProgressHUD(
         inAsyncCall: showSpinner,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 25.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                height: 5.0,
-              ),
-              _buildName(),
-              SizedBox(
-                height: 18.0,
-              ),
-              _buildGender(),
-              SizedBox(
-                height: 12.0,
-              ),
-              _buildAge(),
-              _buildZipcode(),
-              SizedBox(
-                height: 8.0,
-              ),
-              _buildBudget(),
-              SizedBox(
-                height: 8.0,
-              ),
-              _buildAvailableDate(),
-              SizedBox(
-                height: 8.0,
-              ),
-              _buildPetOwner(),
-              _buildSmoker(),
-              RoundedButton(
-                title: 'Submit',
-                colour: Colors.lightBlue,
-                onPressed: () async {
-                  await personDb.collection("persons").add(person.toJson());
-                  Navigator.pushNamed(context, FrontScreen.id);
-                },
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(
+                  height: 5.0,
+                ),
+                _buildName(),
+                SizedBox(
+                  height: 18.0,
+                ),
+                _buildGender(),
+                SizedBox(
+                  height: 12.0,
+                ),
+                _buildAge(),
+                _buildZipcode(),
+                SizedBox(
+                  height: 8.0,
+                ),
+                _buildBudget(),
+                SizedBox(
+                  height: 8.0,
+                ),
+                _buildAvailableDate(),
+                SizedBox(
+                  height: 8.0,
+                ),
+                _buildPetOwner(),
+                _buildSmoker(),
+                RoundedButton(
+                  title: 'Submit',
+                  colour: Colors.lightBlue,
+                  onPressed: () async {
+                    await personDb.collection("persons").add(person.toJson());
+                    Navigator.pushNamed(context, FrontScreen.id);
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

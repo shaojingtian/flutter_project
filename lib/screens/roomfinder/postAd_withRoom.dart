@@ -10,6 +10,7 @@ import 'package:flash_chat/screens/roomfinder/room.dart';
 import 'package:flash_chat/screens/basic/menu_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flash_chat/screens/basic/chat_screen.dart';
+import 'package:flash_chat/components/NavigationBar.dart';
 
 class Postad_withRoom extends StatefulWidget {
   static const String id = 'postad_withroom';
@@ -201,56 +202,51 @@ class _Postad_withRoomState extends State<Postad_withRoom> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.message_rounded),
-        onPressed: () {
-          Navigator.pushNamed(context, ChatScreen.id);
-        },
-        backgroundColor: Colors.blue,
-      ),
       appBar: AppBar(centerTitle: true, title: Text('Fill out your room info')),
       // backgroundColor: Colors.white,
       body: ModalProgressHUD(
         inAsyncCall: showSpinner,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 25.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                height: 30.0,
-              ),
-              _buildRoomType(),
-              _buildZipcode(),
-              SizedBox(
-                height: 8.0,
-              ),
-              _buildAddress(),
-              SizedBox(
-                height: 8.0,
-              ),
-              _buildRent(),
-              SizedBox(
-                height: 8.0,
-              ),
-              _buildAvailableDate(),
-              SizedBox(
-                height: 38.0,
-              ),
-              _buildPreferredGender(),
-              SizedBox(
-                height: 18.0,
-              ),
-              RoundedButton(
-                title: 'Submit',
-                colour: Colors.lightBlue,
-                onPressed: () async {
-                  await roomDb.collection("rooms").add(room.toJson());
-                  Navigator.pushNamed(context, FrontScreen.id);
-                },
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(
+                  height: 30.0,
+                ),
+                _buildRoomType(),
+                _buildZipcode(),
+                SizedBox(
+                  height: 8.0,
+                ),
+                _buildAddress(),
+                SizedBox(
+                  height: 8.0,
+                ),
+                _buildRent(),
+                SizedBox(
+                  height: 8.0,
+                ),
+                _buildAvailableDate(),
+                SizedBox(
+                  height: 38.0,
+                ),
+                _buildPreferredGender(),
+                SizedBox(
+                  height: 18.0,
+                ),
+                RoundedButton(
+                  title: 'Submit',
+                  colour: Colors.lightBlue,
+                  onPressed: () async {
+                    await roomDb.collection("rooms").add(room.toJson());
+                    Navigator.pushNamed(context, FrontScreen.id);
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
